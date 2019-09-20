@@ -1,0 +1,154 @@
+//
+//  BaseNavigationController.m
+//  BaseProject
+//
+//  Created by macbook on 17/2/10.
+//  Copyright © 2017年 hstar. All rights reserved.
+//
+
+#import "BaseNavigationController.h"
+
+@interface BaseNavigationController ()<UIGestureRecognizerDelegate,UINavigationControllerDelegate>
+@property(nonatomic,weak) UIViewController* currentShowVC;
+
+@end
+
+@implementation BaseNavigationController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    //手势有效与否
+    self.interactivePopGestureRecognizer.enabled = YES;
+    //手势的代理,一般会设置为self
+    self.interactivePopGestureRecognizer.delegate = self;
+    
+    //    // 设置背景
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
+    // nabigationBar阴影
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    // navigationBar是否半透明模糊处理，此项设置将影响有navigationBar的ViewController的布局
+    [UINavigationBar appearance].translucent = NO;
+    // 设置标题文字属性
+    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
+    barAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
+    [self.navigationBar setTitleTextAttributes:barAttrs];
+    
+}
+-(id)initWithRootViewController:(UIViewController *)rootViewController
+{
+    BaseNavigationController* nvc = [super initWithRootViewController:rootViewController];
+    self.interactivePopGestureRecognizer.delegate = self;
+    nvc.delegate = self;
+    return nvc;
+}
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+}
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (navigationController.viewControllers.count == 1)
+        self.currentShowVC = Nil;
+    else
+        self.currentShowVC = viewController;
+}
+//  防止导航控制器只有一个rootViewcontroller时触发手势
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.childViewControllers.count==1) {
+        return NO;
+    }else{
+//        if ([self.topViewController isKindOfClass:[PlayController class]]) {
+//            return NO;
+//        }else{
+            return YES;
+//        }
+    }
+    //解决与左滑手势冲突
+    if (gestureRecognizer == self.interactivePopGestureRecognizer) {
+        return (self.currentShowVC == self.topViewController); //the most important
+    }
+    return YES;
+}
+
+
+- (BOOL)shouldAutorotate
+{
+    return [self.viewControllers.lastObject shouldAutorotate];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    UIInterfaceOrientationMask mask = [self.viewControllers.lastObject supportedInterfaceOrientations];
+    //设置竖屏界面 状态栏不旋转
+    if (mask==UIInterfaceOrientationMaskPortrait) {
+        //如果是其他页面,则设置状态栏为竖屏方向状态
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait];
+    }else if(mask==UIInterfaceOrientationMaskLandscapeLeft){
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeLeft];
+    }else if(mask==UIInterfaceOrientationMaskLandscapeRight){
+        [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+    }
+    return mask;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return [self.viewControllers.lastObject preferredInterfaceOrientationForPresentation];
+}
+
++ (void)initialize {
+    //appearance方法返回一个导航栏的外观对象
+    //修改了这个外观对象，相当于修改了整个项目中的外观
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    //设置导航栏背景颜色
+//        [navigationBar setBarTintColor:JDRGBColor(55,207,240,1)];
+
+
+    //设置标题栏颜色
+    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName : [UIFont systemFontOfSize:16]};
+    //设置NavigationBarItem文字的颜色
+    [navigationBar setTintColor:[UIColor whiteColor]];
+
+
+    [navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
+//    // 1.设置导航栏主题
+//    [self setupNavBarTheme];
+//    // 2.设置导航栏按钮主题
+//    [self setupBarButtonItemTheme];
+}
+//+ (void)initialize
+//{
+//    /** 设置UINavigationBar */
+//    UINavigationBar *bar = [UINavigationBar appearance];
+//    // 设置背景
+//    //    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+//    // 设置标题文字属性
+//    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
+//    barAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:18];
+//    [bar setTitleTextAttributes:barAttrs];
+//
+//    /** 设置UIBarButtonItem */
+//    UIBarButtonItem *item = [UIBarButtonItem appearance];
+//
+//    // UIControlStateNormal
+//    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+//    normalAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+//    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+//    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+//
+//    // UIControlStateDisabled
+//    NSMutableDictionary *disabledAttrs = [NSMutableDictionary dictionary];
+//    disabledAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+//    [item setTitleTextAttributes:disabledAttrs forState:UIControlStateDisabled];
+//}
+
+
+
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self.childViewControllers.count >= 1) {
+        viewController.hidesBottomBarWhenPushed = YES; // 隐藏底部的工具条
+    }
+    [super pushViewController:viewController animated:animated];
+}
+
+
+
+@end

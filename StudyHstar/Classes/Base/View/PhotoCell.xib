@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="XWPhotoCell" reuseIdentifier="" id="4dV-zS-xjw" customClass="PhotoCell">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addphoto" translatesAutoresizingMaskIntoConstraints="NO" id="D41-B6-5Ut">
+                        <rect key="frame" x="5" y="5" width="60" height="60"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMS-Nn-fNy">
+                        <rect key="frame" x="50" y="0.0" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="8Jq-dQ-RsD"/>
+                            <constraint firstAttribute="width" constant="20" id="Hox-vK-1Zc"/>
+                        </constraints>
+                        <state key="normal" image="close_y">
+                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="btnCloseClick:" destination="4dV-zS-xjw" eventType="touchUpInside" id="gMa-qr-jIo"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="D41-B6-5Ut" secondAttribute="bottom" constant="5" id="1TO-HC-n4A"/>
+                <constraint firstItem="zMS-Nn-fNy" firstAttribute="top" secondItem="4dV-zS-xjw" secondAttribute="top" id="Pwy-kR-vSJ"/>
+                <constraint firstItem="D41-B6-5Ut" firstAttribute="top" secondItem="4dV-zS-xjw" secondAttribute="top" constant="5" id="eHW-u8-0KZ"/>
+                <constraint firstAttribute="trailing" secondItem="D41-B6-5Ut" secondAttribute="trailing" constant="5" id="fEF-Ys-Lhv"/>
+                <constraint firstItem="D41-B6-5Ut" firstAttribute="leading" secondItem="4dV-zS-xjw" secondAttribute="leading" constant="5" id="fse-0T-EkE"/>
+                <constraint firstAttribute="trailing" secondItem="zMS-Nn-fNy" secondAttribute="trailing" id="zH4-Kk-5QY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="K9V-Js-pZ8"/>
+            <connections>
+                <outlet property="btnClose" destination="zMS-Nn-fNy" id="z2u-o4-JO9"/>
+                <outlet property="img" destination="D41-B6-5Ut" id="iZ8-v3-a35"/>
+            </connections>
+            <point key="canvasLocation" x="-79" y="60"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="addphoto" width="75" height="75"/>
+        <image name="close_y" width="15" height="15"/>
+    </resources>
+</document>

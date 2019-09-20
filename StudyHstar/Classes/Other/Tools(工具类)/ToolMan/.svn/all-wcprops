@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan
+END
+ToolMan.h
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/ToolMan.h
+END
+TimeMan.h
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/TimeMan.h
+END
+FileMan.h
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/FileMan.h
+END
+HttpMan.h
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/HttpMan.h
+END
+ToolMan.mm
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/ToolMan.mm
+END
+IMGManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/IMGManager.m
+END
+VerificationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/VerificationManager.h
+END
+TimeMan.m
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/TimeMan.m
+END
+FileMan.m
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/FileMan.m
+END
+HttpMan.m
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/HttpMan.m
+END
+VerificationManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/VerificationManager.m
+END
+ReqMan.h
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/ReqMan.h
+END
+IMGManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/IMGManager.h
+END
+ReqMan.m
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/client/!svn/ver/1475/ios/%E5%A4%A9%E7%BF%BC%E6%99%AF%E8%B1%A1/YiScene_VLC/Shuanju/Classes/Other/Tools(%E5%B7%A5%E5%85%B7%E7%B1%BB)/ToolMan/ReqMan.m
+END

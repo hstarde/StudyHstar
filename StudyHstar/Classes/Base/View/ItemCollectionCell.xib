@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6H0-ml-SkG" customClass="ItemCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="94" height="95"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="94" height="95"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="cB3-S7-aQm">
+                        <rect key="frame" x="19" y="9" width="56" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="cB3-S7-aQm" secondAttribute="height" multiplier="1:1" id="fc2-AF-r3c"/>
+                            <constraint firstAttribute="width" constant="56" id="yDN-Dg-REr"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日常保洁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-g5-nV0">
+                        <rect key="frame" x="0.0" y="70" width="94" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="gfv-Ir-4FS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cB3-S7-aQm" firstAttribute="centerX" secondItem="6H0-ml-SkG" secondAttribute="centerX" id="GLv-q1-haM"/>
+                <constraint firstItem="gaH-g5-nV0" firstAttribute="top" secondItem="cB3-S7-aQm" secondAttribute="bottom" constant="5" id="hAN-1p-rob"/>
+                <constraint firstItem="gaH-g5-nV0" firstAttribute="leading" secondItem="6H0-ml-SkG" secondAttribute="leading" id="iJd-XY-FBQ"/>
+                <constraint firstAttribute="trailing" secondItem="gaH-g5-nV0" secondAttribute="trailing" id="kDK-IL-rBl"/>
+                <constraint firstAttribute="bottom" secondItem="gaH-g5-nV0" secondAttribute="bottom" constant="5" id="vSk-J3-VLZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="jJG-zR-0EG"/>
+            <size key="customSize" width="94" height="95"/>
+            <connections>
+                <outlet property="img" destination="cB3-S7-aQm" id="HP6-le-ZmE"/>
+                <outlet property="lbname" destination="gaH-g5-nV0" id="EzL-vB-VgL"/>
+            </connections>
+            <point key="canvasLocation" x="-17.600000000000001" y="11.244377811094454"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder" width="375" height="212"/>
+    </resources>
+</document>

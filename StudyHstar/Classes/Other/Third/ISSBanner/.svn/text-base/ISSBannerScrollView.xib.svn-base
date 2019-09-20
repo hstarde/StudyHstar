@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ISSBannerScrollView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSz-K5-FQe">
+                    <rect key="frame" x="8" y="630" width="375" height="37"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="titleLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iq0-I9-ko6">
+                            <rect key="frame" x="279" y="8" width="70" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pfx-k1-eTb">
+                            <rect key="frame" x="280" y="0.0" width="39" height="37"/>
+                        </pageControl>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="pfx-k1-eTb" secondAttribute="bottom" id="1xg-Em-FWE"/>
+                        <constraint firstItem="pfx-k1-eTb" firstAttribute="top" secondItem="uSz-K5-FQe" secondAttribute="top" id="7ZP-HB-noI"/>
+                        <constraint firstItem="Iq0-I9-ko6" firstAttribute="top" secondItem="uSz-K5-FQe" secondAttribute="top" id="JNz-OI-PI3"/>
+                        <constraint firstAttribute="bottom" secondItem="Iq0-I9-ko6" secondAttribute="bottom" id="Oub-Ed-fEG"/>
+                        <constraint firstAttribute="trailing" secondItem="pfx-k1-eTb" secondAttribute="trailing" id="n7a-VF-v98"/>
+                        <constraint firstItem="Iq0-I9-ko6" firstAttribute="leading" secondItem="uSz-K5-FQe" secondAttribute="leading" id="rBA-z8-iuO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="uSz-K5-FQe" secondAttribute="bottom" id="2ff-4S-hwI"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uSz-K5-FQe" secondAttribute="trailing" constant="8" id="AQ8-zf-Gy8"/>
+                <constraint firstAttribute="trailing" secondItem="uSz-K5-FQe" secondAttribute="trailing" constant="-8" id="Ih7-6Y-MMA"/>
+                <constraint firstAttribute="bottom" secondItem="uSz-K5-FQe" secondAttribute="bottom" id="dcH-TC-AHq"/>
+                <constraint firstItem="uSz-K5-FQe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="gQX-Ca-ymw"/>
+                <constraint firstItem="uSz-K5-FQe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="mt7-Si-8ZX"/>
+            </constraints>
+            <connections>
+                <outlet property="bottomContainerView" destination="uSz-K5-FQe" id="1MX-DT-yLX"/>
+                <outlet property="pageControl" destination="pfx-k1-eTb" id="HOZ-ZS-yDK"/>
+                <outlet property="titleLabel" destination="Iq0-I9-ko6" id="q6N-jG-RJE"/>
+            </connections>
+            <point key="canvasLocation" x="247" y="144"/>
+        </view>
+    </objects>
+</document>

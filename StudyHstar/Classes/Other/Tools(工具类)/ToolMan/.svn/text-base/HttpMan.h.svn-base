@@ -1,0 +1,42 @@
+//
+//  HttpMan.h
+//  CropsCliet
+//
+//  Created by macbook on 2019/3/19.
+//  Copyright © 2019 hstar. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "YMCountryPickerView.h"
+#import "PlayModel.h"
+#import "DeviceModel.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface HttpMan : NSObject
+
+@property (strong,nonatomic) YMCountryPickerView *pickerView;
+
+//缓存区域列表
+@property (strong,nonatomic) NSArray *arrArea;
+
+
+
+
++ (instancetype)sharedMan;
+
+
+//camreaId:摄像头id  必须 startTime:开始时间  必须 endTime:结束时间  必须 type:查询类型(snap.抓拍;msr.陌生人;vip.关注人员)  必须 pageSize:页大小(默认20) pageNum:第几页(默认1)algorithmType:算法类型(faceIndentifition：人脸抓拍；videoQualityDetection：视频质量检测crossBorderDetection：越界算法）
++(void)getCameraZprl:(NSString *)cameraId startTime:(NSString *)startTime endTime:(NSString *)endTime type:(NSString *)type pageSize:(NSString *)pageSize  pageNum:(NSString *)pageNum algorithmType:(NSString *)algorithmType  success:(void (^)(id obj))success failure:(void (^)(NSString *msg))failure;
+
+//首页摄像头列表
++(void)requestGeyeList:(void (^)(DeviceObj *devObj))block;
+
+
+
+//摄像头转向 direction :   5 light 6 dark 7big 8 small type: 0移动 1持续移动 2 停止
++(void)Control:(PlayModel *)model direction:(NSString *)direction type:(BOOL)type;
+
+@end
+
+NS_ASSUME_NONNULL_END

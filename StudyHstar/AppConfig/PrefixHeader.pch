@@ -1,0 +1,82 @@
+//
+//  PrefixHeader.pch
+//  FaceRecognition
+//
+//  Created by macbook on 16/9/9.
+//  Copyright © 2016年 hstar. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//添加混淆作用的头文件（这个文件名是脚本confuse.sh中定义的）
+//#import "codeObfuscation.h"
+
+//头文件
+#import "APIMacros.h"
+#import "NotificationMacros.h"
+#import "DimensMacros.h"
+#import "DefaultMacros.h"
+
+
+//category
+#import "NSArray+Category.h"
+#import "NSArray+Safe.h"
+#import "NSMutableArray+Safe.h"
+#import "NSDictionary+Category.h"
+#import "NSDictionary+Safe.h"
+#import "NSMutableDictionary+Safe.h"
+#import "NSObject+Category.h"
+#import "NSObject+PerformBlock.h"
+#import "NSObject+Swizzle.h"
+#import "NSAttributedString+Category.h"
+#import "NSMutableString+Safe.h"
+#import "NSString+Category.h"
+#import "NSString+DisplayTime.h"
+#import "NSString+MD5.h"
+#import "NSString+Predicate.h"
+#import "NSString+Safe.h"
+#import "UIButton+Category.h"
+#import "UIColor+Category.h"
+#import "UIImage+Category.h"
+#import "UIMenuItem+Category.h"
+#import "UITableView+CellAnimation.h"
+#import "UITextView+ZWPlaceHolder.h"
+#import "UITextView+ZWLimitCounter.h"
+#import "UIView+Category.h"
+#import "UIView+Frame.h"
+#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
+#import "UIBarButtonItem+XMGExtension.h"
+#import "UITextView+ZWPlaceHolder.h"
+#import "UITextView+ZWLimitCounter.h"
+
+#import "MJRefresh.h"
+#import "MJExtension.h"
+
+
+//#import <BlocksKit/BlocksKit.h>
+//#import <BlocksKit/A2DynamicDelegate.h>
+//#import "ReactiveObjC.h"
+
+
+
+#import "Singleton.h"
+#import "ToolMan.h"
+#import "TimeMan.h"
+#import "ReqMan.h"
+#import "FileMan.h"
+
+#import "AccountMan.h"
+
+
+#endif
+
+#endif /* PrefixHeader_pch */
+
+
+

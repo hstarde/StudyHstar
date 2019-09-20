@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CCDiscoveryCollectiionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="211"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blB-Jj-CS9">
+                    <rect key="frame" x="0.0" y="0.0" width="197" height="211"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdJ-vR-N89">
+                    <rect key="frame" x="0.0" y="69" width="197" height="75"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainView_BanIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="GTU-So-b6B">
+                            <rect key="frame" x="73" y="0.0" width="52" height="52"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRq-IJ-fzi">
+                            <rect key="frame" x="0.0" y="58" width="197" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="IRq-IJ-fzi" secondAttribute="bottom" id="BMF-pA-fES"/>
+                        <constraint firstItem="GTU-So-b6B" firstAttribute="top" secondItem="bdJ-vR-N89" secondAttribute="top" id="CRC-03-v3V"/>
+                        <constraint firstAttribute="centerX" secondItem="GTU-So-b6B" secondAttribute="centerX" id="DkL-QO-cXG"/>
+                        <constraint firstItem="IRq-IJ-fzi" firstAttribute="top" secondItem="GTU-So-b6B" secondAttribute="bottom" constant="6" id="GjX-eX-Xwl"/>
+                        <constraint firstAttribute="trailing" secondItem="IRq-IJ-fzi" secondAttribute="trailing" id="feh-2n-R5Y"/>
+                        <constraint firstItem="IRq-IJ-fzi" firstAttribute="leading" secondItem="bdJ-vR-N89" secondAttribute="leading" id="knI-ZU-viU"/>
+                        <constraint firstItem="GTU-So-b6B" firstAttribute="centerX" secondItem="IRq-IJ-fzi" secondAttribute="centerX" id="th6-Ae-61V"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bdJ-vR-N89" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4Bn-Oc-aD9"/>
+                <constraint firstAttribute="centerY" secondItem="bdJ-vR-N89" secondAttribute="centerY" id="7ZJ-6A-Shn"/>
+                <constraint firstAttribute="bottom" secondItem="blB-Jj-CS9" secondAttribute="bottom" id="Gmk-LI-kMs"/>
+                <constraint firstItem="blB-Jj-CS9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NiB-FI-6CR"/>
+                <constraint firstAttribute="trailing" secondItem="blB-Jj-CS9" secondAttribute="trailing" id="PXo-NI-1u5"/>
+                <constraint firstAttribute="centerX" secondItem="bdJ-vR-N89" secondAttribute="centerX" id="UZr-qT-B9v"/>
+                <constraint firstItem="blB-Jj-CS9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qqV-v8-SUR"/>
+                <constraint firstAttribute="trailing" secondItem="bdJ-vR-N89" secondAttribute="trailing" id="xgq-Wy-4oe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="GTU-So-b6B" id="v9g-lq-0gA"/>
+                <outlet property="selectedBackgroundView" destination="blB-Jj-CS9" id="GTo-n4-87G"/>
+                <outlet property="titleLabel" destination="IRq-IJ-fzi" id="46K-t1-qM5"/>
+            </connections>
+            <point key="canvasLocation" x="108.5" y="156.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="MainView_BanIcon.png" width="52" height="52"/>
+    </resources>
+</document>

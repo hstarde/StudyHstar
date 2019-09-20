@@ -1,0 +1,158 @@
+//
+//  HttpMan.m
+//  CropsCliet
+//
+//  Created by macbook on 2019/3/19.
+//  Copyright © 2019 hstar. All rights reserved.
+//
+
+#import "HttpMan.h"
+
+@implementation HttpMan
+static HttpMan *_sharedMan;
++ (instancetype)sharedMan {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{ _sharedMan = [[self alloc] init]; });
+    return _sharedMan;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
+//https://zhyyt.153.cn:17091/vdmin/tyjx/getCameraZprl?cameraId=190&startTime=2019-04-08%2011:21:37&endTime=2019-08-08%2014:21:37&type=snap&pageSize=10&pageNum=1&algorithmType=crossBorderDetection
+//camreaId:摄像头id  必须 startTime:开始时间  必须 endTime:结束时间  必须 type:查询类型(snap.抓拍;msr.陌生人;vip.关注人员)  必须 pageSize:页大小(默认20) pageNum:第几页(默认1)algorithmType:算法类型(faceIndentifition：人脸抓拍；videoQualityDetection：视频质量检测crossBorderDetection：越界算法）
++(void)getCameraZprl:(NSString *)cameraId startTime:(NSString *)startTime endTime:(NSString *)endTime type:(NSString *)type pageSize:(NSString *)pageSize  pageNum:(NSString *)pageNum algorithmType:(NSString *)algorithmType  success:(void (^)(id obj))success failure:(void (^)(NSString *msg))failure{
+    
+//    NSString *url=[NSString stringWithFormat:@"%@?cameraId=%@&startTime=%@&endTime=%@&type=%@&pageSize=%@&pageNum=%@&algorithmType=%@",API_getCameraZprl,cameraId,startTime,endTime,type,pageSize,pageNum,algorithmType];
+    NSDictionary *dic=@{@"cameraId":cameraId,
+                        @"startTime":startTime,
+                        @"endTime":endTime,
+                        @"type":type,
+                        @"pageSize":pageSize,
+                        @"pageNum":pageNum,
+                        @"algorithmType":algorithmType,
+                        @"apiversion":@6,
+                        @"method":API_getCameraZprl
+                        };
+    
+    [ReqMan GET:API_BASENEW_URL param:dic isLoding:NO success:^(id obj) {
+        if (success) {
+            success(obj);
+        }
+    } failure:^(NSString *msg) {
+        if (failure) {
+            failure(msg);
+        }
+    }];
+}
+
+//    dispatch_group_t group = dispatch_group_create();
+//    KSVShow
+//    // 请求一
+//    dispatch_group_enter(group);
+//    [HttpMan getGeyeList:^(NSArray *arrDevOther) {
+//        dispatch_group_leave(group);
+//    }];
+//    // 请求二
+//    dispatch_group_enter(group);
+//    [HttpMan requeyGeyeList2:^(DeviceObj *devObj) {
+//        dispatch_group_leave(group);
+//    }];
+//    // 当上述两个请求结束后，收到通知，在此做后续工作
+//    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+//        KSVHide
+//        DeviceObj *obj=[HttpMan sharedMan].devObj;
+//        NSArray *arr=[HttpMan sharedMan].arrDevOther;
+//        //数据解析
+//        if (block) {
+//            block([HttpMan sharedMan].devObj);
+//        }
+//    });
+
+
+//首页摄像头列表
++(void)requestGeyeList:(void (^)(DeviceObj *devObj))block{
+    NSString* pwd = [[NSUserDefaults standardUserDefaults] stringForKey:ConfigPassword];
+    NSDictionary *dic=@{@"geyeAccount":KUSER.userName,
+                        @"geyePassword":[ToolMan doEncrypt:pwd],
+                        @"areaCode":KUSER.cityId,
+                        @"GeyePlatformFlag":KUSER.platformFlag,
+                        @"apiversion":@6,
+                        @"method":API_requestGeyeList
+                        };
+    [ReqMan GET:API_BASENEW_URL param:dic isLoding:YES success:^(id obj) {
+        DeviceObj *devObj=[DeviceObj mj_objectWithKeyValues:obj];
+        if ([devObj.returnCode isEqualToString:@"-100"]) {
+            KSVError(@"session超时,请重新登录");
+        }
+        if (block) {
+            block(devObj);
+        }
+    } failure:^(NSString *msg) {
+        if (block) {
+            block(nil);
+        }
+    }];
+}
+
+
+
+
+//摄像头转向 direction :   5 light 6 dark 7big 8 small type:no 移动  yes持续移动  停止
++(void)Control:(PlayModel *)model direction:(NSString *)direction type:(BOOL)type{
+    NSString *method=API_sjkdPTZControl;
+// stringWithFormat:@"%d",KUSER.platformFlag.intValue+5],//1：非个人中心请求播放2：个人中心请求播放 3：搜索  4：推送 5:地图6:个人中心请求播放-全球眼平台 7:个人中心请求播放-手机看店8:个人中心请求播放-天眼
+    if(KUSER.platformFlag.intValue+5==7){
+        method=API_sjkdPTZControl;
+    }else if(KUSER.platformFlag.intValue+5==8){
+        
+        method=API_cloudControl;
+    }else{
+        method=API_qqyPTZControl;
+    }
+    NSString* stepLength = [[NSUserDefaults standardUserDefaults] stringForKey:ConfigCloudStep];
+    if (stepLength==nil) {
+        stepLength=@"9";
+    }
+    NSString *timeLength=@"3";
+    if (type==NO) {//正常点击
+        timeLength=@"3";
+    } else {//持续移动或者暂停
+        timeLength=@"0";
+    }
+    NSDictionary *dic=@{@"userId":KIsNilP(model.userId),
+                        @"puidAndChannelno":KIsNilP(model.puidAndChannelno),//摄像头id
+                        @"ptzDirection":direction,//0—停止转动，1—上，2—下，3—左，4—右5:放大,6:缩小）
+                        @"stepLength":stepLength,//步长（灵敏度）值范围:1到10  app设置
+                        @"timeLength":timeLength,//转动时长：不填或0为一直移动到头，大于0为转动100ms*timeLength时长
+                        @"areaCode":@"",
+                        @"apiversion":@"6",
+                        @"method":method,
+                        };
+    NSDate *date=[NSDate date];
+    [ReqMan GET:API_BASE_URL param:dic isLoding:NO success:^(id obj) {
+        KLog(@"云台向 1—上，2—下，3—左，4—右= %@ 时长: %f 秒",direction,[[NSDate date] timeIntervalSinceDate:date]);
+    } failure:^(NSString *msg) {
+        KSVError(msg);
+    }];
+}
+//上传截图
+
+
+-(YMCountryPickerView *)pickerView
+{
+    if (_pickerView==nil) {
+        _pickerView = [[YMCountryPickerView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        _pickerView.title=@"";
+        _pickerView.leftBtnTitle=@"取消";
+        _pickerView.rightBtnTitle=@"确定";
+        
+        
+    }
+    return _pickerView;
+}
+@end
